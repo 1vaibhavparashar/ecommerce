@@ -1,0 +1,72 @@
+<% layout('layouts/boilerplate') -%>
+
+<section class="container">
+
+
+  <%- include('../partials/flash')  %> 
+
+  <div class="complete">
+
+  </div>
+  <!-- Carousel -->
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner carousel">
+      <div class="carousel-item active">
+        <img src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/329a934624766c3b.jpg?q=20" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/6167b56dad6d1330.jpg?q=20" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/07a1378ee0d7d615.jpeg?q=20" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="gap">
+    <p>white text</p>
+  </div>
+  <!-- <section id="heading"> 
+    <h4 class="display-4"><i class="fab fa-shopify" style="margin-right: 20px;"></i>Shopping-Cart</h4>
+  </section> -->
+  <div class="row products">
+      <%for(let product of products){%>
+          <div class="col-lg-3 col-md-6 mb-3">
+              <div class="card shadow-sm mx-auto position-relative" style="width: 20rem;">
+                  <img src="<%=product.img%>" class="card-img-top" alt="item image">
+                  <span class="badge rounded-pill bg-light text-dark w-25 position-absolute translate-middle-y" style="top:41%;left:5%"><%=product.avgRating%>  &star; | <%=product.reviews.length%></span>
+                  <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between align-items-center">
+                      <span><%= product.name %></span> 
+                      <span class="btn like-btn" product-id="<%=product._id%>">
+                        <% if(currentUser && currentUser.wishList.includes(product._id)){ %>
+                           <i class="fas fa-heart"></i>
+                          <% } else{ %>
+                            <i class="far fa-heart"></i>
+                        <% } %>
+                      </span>
+                    </h5>
+                    <p class="card-text fw-light"><%= product.desc%></p>
+                    <% if(product.reviews.length){ %>
+                      <p class="text-muted"><%=product.reviews.length%> reviews</p>
+                    <%}else{%>
+                      <p class="text-muted">No reviews</p>
+                    <% } %> 
+                    <h6 class="card-title"><span class="fw-lighter fs-6 text-decoration-line-through">Rs.<%= product.price*2 %></span> Rs.<%= product.price %> <span class="fw-light fs-6 text-warning">( 50 % OFF )</span> </h6>
+                    <a href="/products/<%=product._id%>" class="btn btn-sm show-btn">View Now</a>
+                  </div>
+              </div>
+          </div>
+      <%}%>
+  </div>
+</section>
+
+
+<script src="/js/common.js"></script>
