@@ -99,8 +99,8 @@ app.use(productApi);
 // app.use(paymentRoutes);
 
 
-const port = 8080;
+const PORT = 8080;
 
-app.listen(port, () => {
-    console.log(`server running at port ${port}`);
+app.listen(PORT, () => {
+    console.log(`server running at port ${PORT}`);
 });
