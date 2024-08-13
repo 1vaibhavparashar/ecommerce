@@ -17,7 +17,7 @@ const seedDB = require('./seed')
 const MongoStore = require('connect-mongo');
 
 // const dbURL = process.env.dbURL || 'mongodb://localhost:27017/shopping-v-app';
-const dbURL = "mongodb+srv://vaibhavparashar0077:vaibhav123@cluster0.xmbbq.mongodb.net/ecom-shopretryWrites=true&w=majority&appName=Cluster0"
+const dbURL = "mongodb+srv://vaibhavparashar0077:vaibhav123@cluster0.xmbbq.mongodb.net/ecom-shopretryWrites=true&w=majority"
 
 mongoose.set('strictQuery', true);
 // mongoose.connect("mongodb+srv://vaibhavparashar0077:<password>@cluster0.tgnls.mongodb.net/shop")
